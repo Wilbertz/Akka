@@ -7,23 +7,32 @@ using MovieStreaming.Messages;
 
 namespace MovieStreaming.Actors
 {
+
     public class PlaybackActor : ReceiveActor
     {
+        private readonly IActorRef _userCoordinator;
+        private readonly IActorRef _statistics;
+
         public PlaybackActor()
         {
-            Console.WriteLine("Creating a PlaybackActor");
+            _userCoordinator = Context.ActorOf(Props.Create<UserCoordinatorActor>(), "UserCoordinator");
+            _statistics = Context.ActorOf(Props.Create<PlaybackStatisticsActor>(), "PlaybackStatistics");
 
-            Receive<PlayMovieMessage>(HandlePlayMovieMessage);
+
+            Receive<PlayMovieMessage>(message =>
+            {
+                ColorConsole.WriteLineGreen(
+                    "PlaybackActor received PlayMovieMessage '{0}' for user {1}",
+                    message.MovieTitle, message.UserId);
+
+                _userCoordinator.Tell(message);
+            });
         }
 
-        private void HandlePlayMovieMessage(PlayMovieMessage message)
-        {
-            ColorConsole.WriteLineYellow(string.Format("PlayMovieMessage '{0}' for user {1} ", message.MovieTitle, message.UserId));
-        }
-
+        #region Lifecycle hooks
         protected override void PreStart()
         {
-           ColorConsole.WriteLineGreen("PlaybackActor PreStart");
+            ColorConsole.WriteLineGreen("PlaybackActor PreStart");
         }
 
         protected override void PostStop()
@@ -34,7 +43,7 @@ namespace MovieStreaming.Actors
         protected override void PreRestart(Exception reason, object message)
         {
             ColorConsole.WriteLineGreen("PlaybackActor PreRestart because: " + reason);
-            
+
             base.PreRestart(reason, message);
         }
 
@@ -44,6 +53,7 @@ namespace MovieStreaming.Actors
 
             base.PostRestart(reason);
         }
+        #endregion
     }
 }
  
