@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Akka.Actor;
+using MovieStreaming.Exceptions;
 using MovieStreaming.Messages;
 
 namespace MovieStreaming.Actors
@@ -27,7 +27,45 @@ namespace MovieStreaming.Actors
             {
                 _moviePlayCounts.Add(message.MovieTitle, 1);
             }
+
+            if (_moviePlayCounts[message.MovieTitle] > 3)
+            {
+                throw new SimulatedCorruptStateException();
+            }
+
+            if (message.MovieTitle == "Partial Recoil")
+            {
+                throw new SimulatedTerribleMovieException();
+            }
+
             ColorConsole.WriteMagenta("MoviePlayCounterActor '{0} has been watched {1} times", message.MovieTitle, _moviePlayCounts[message.MovieTitle]);
         }
+
+        #region Lifecycle hooks
+
+        protected override void PreStart()
+        {
+            ColorConsole.WriteMagenta("MoviePlayCounterActor PreStart");
+        }
+
+        protected override void PostStop()
+        {
+            ColorConsole.WriteMagenta("MoviePlayCounterActor PostStop");
+        }
+
+        protected override void PreRestart(Exception reason, object message)
+        {
+            ColorConsole.WriteMagenta("MoviePlayCounterActor PreRestart because: {0}", reason.Message);
+
+            base.PreRestart(reason, message);
+        }
+
+        protected override void PostRestart(Exception reason)
+        {
+            ColorConsole.WriteMagenta("MoviePlayCounterActor PostRestart because: {0} ", reason.Message);
+
+            base.PostRestart(reason);
+        }
+        #endregion
     }
 }
