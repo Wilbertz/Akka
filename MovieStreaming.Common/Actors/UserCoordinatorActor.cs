@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Akka.Actor;
-using MovieStreaming.Messages;
+using MovieStreaming.Common;
+using MovieStreaming.Common.Messages;
 
-namespace MovieStreaming.Actors
+namespace MovieStreaming.Common.Actors
 {
     public class UserCoordinatorActor : ReceiveActor
     {

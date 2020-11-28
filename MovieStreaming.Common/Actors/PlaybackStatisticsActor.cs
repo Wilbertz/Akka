@@ -1,8 +1,8 @@
 ﻿using System;
 using Akka.Actor;
-using MovieStreaming.Exceptions;
+using MovieStreaming.Common.Exceptions;
 
-namespace MovieStreaming.Actors
+namespace MovieStreaming.Common.Actors
 {
     public class PlaybackStatisticsActor : ReceiveActor
     {

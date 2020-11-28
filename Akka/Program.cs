@@ -1,10 +1,12 @@
-﻿ using System;
- using System.Threading;
- using Akka.Actor;
- using MovieStreaming.Actors;
- using MovieStreaming.Messages;
+﻿using System;
+using System.Threading;
 
- namespace MovieStreaming
+using Akka.Actor;
+using MovieStreaming.Common;
+using MovieStreaming.Common.Actors;
+using MovieStreaming.Common.Messages;
+
+namespace MovieStreaming
 {
     class Program
     {

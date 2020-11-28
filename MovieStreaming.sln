@@ -10,6 +10,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStreaming.Remote", "MovieStreaming.Remote\MovieStreaming.Remote.csproj", "{B803DD7A-8185-459E-BFD0-DA667D1B9D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieStreaming.Common", "MovieStreaming.Common\MovieStreaming.Common.csproj", "{88138820-918A-4D28-AEB3-F17100229B92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +24,14 @@ Global
 		{63F6A2DA-3910-4A04-8E9B-84B646616FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63F6A2DA-3910-4A04-8E9B-84B646616FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63F6A2DA-3910-4A04-8E9B-84B646616FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B803DD7A-8185-459E-BFD0-DA667D1B9D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B803DD7A-8185-459E-BFD0-DA667D1B9D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B803DD7A-8185-459E-BFD0-DA667D1B9D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B803DD7A-8185-459E-BFD0-DA667D1B9D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88138820-918A-4D28-AEB3-F17100229B92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88138820-918A-4D28-AEB3-F17100229B92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88138820-918A-4D28-AEB3-F17100229B92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88138820-918A-4D28-AEB3-F17100229B92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

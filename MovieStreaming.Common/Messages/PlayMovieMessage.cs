@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-
-namespace MovieStreaming.Messages
+﻿namespace MovieStreaming.Common.Messages
 {
     public class PlayMovieMessage
     {
