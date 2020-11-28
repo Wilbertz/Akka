@@ -1,7 +1,6 @@
 ﻿ using System;
 
  using Akka.Actor;
- using Akka.Actor.Internal;
  using MovieStreaming.Actors;
  using MovieStreaming.Messages;
 
